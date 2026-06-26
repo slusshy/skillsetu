@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import api from '../api'
+import { api } from '../api'
 import { motion } from 'framer-motion'
 import { Loader2, User, MapPin, Calendar, FileText, Sparkles } from 'lucide-react'
 
