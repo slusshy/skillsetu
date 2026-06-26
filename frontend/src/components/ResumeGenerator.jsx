@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
-import api from '../api'
+import { api } from '../api'
 import { Download, FileText, CheckCircle, User, Clock, MapPin } from 'lucide-react'
 
 function ResumeGenerator({ profiles, language = 'en' }) {
