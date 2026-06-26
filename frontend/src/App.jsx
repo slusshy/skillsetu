@@ -17,9 +17,10 @@ function App() {
   const fetchProfiles = async () => {
     try {
       const response = await axios.get('/api/profiles')
-      setProfiles(response.data)
+      setProfiles(Array.isArray(response.data) ? response.data : [])
     } catch (err) {
       console.error('Failed to fetch profiles')
+      setProfiles([])
     } finally {
       setLoading(false)
     }

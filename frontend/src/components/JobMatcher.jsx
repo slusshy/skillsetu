@@ -37,21 +37,21 @@ function JobMatcher({ profiles, language = 'en' }) {
     return 'Partial Match'
   }
 
-      if (profiles.length === 0) {
-        return (
-          <div className="max-w-3xl mx-auto">
-            <div className="bg-white rounded-xl shadow-lg p-12 text-center">
-              <Briefcase className="w-16 h-16 text-neutral-300 mx-auto mb-4" />
-              <h2 className="text-2xl font-bold text-neutral-900 mb-2">
-                {language === 'hi' ? 'अभी कोई प्रोफ़ाइल नहीं है' : 'No Profiles Yet'}
-              </h2>
-              <p className="text-neutral-500 mb-6">
-                {language === 'hi' ? 'मैचिंग नौकरियां खोजने के लिए पहले एक प्रोफ़ाइल बनाएं।' : 'Create a profile first to find matching jobs.'}
-              </p>
-            </div>
-          </div>
-        )
-      }
+  if (!Array.isArray(profiles) || profiles.length === 0) {
+    return (
+      <div className="max-w-3xl mx-auto">
+        <div className="bg-white rounded-xl shadow-lg p-12 text-center">
+          <Briefcase className="w-16 h-16 text-neutral-300 mx-auto mb-4" />
+          <h2 className="text-2xl font-bold text-neutral-900 mb-2">
+            {language === 'hi' ? 'अभी कोई प्रोफ़ाइल नहीं है' : 'No Profiles Yet'}
+          </h2>
+          <p className="text-neutral-500 mb-6">
+            {language === 'hi' ? 'मैचिंग नौकरियां खोजने के लिए पहले एक प्रोफ़ाइल बनाएं।' : 'Create a profile first to find matching jobs.'}
+          </p>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div className="max-w-5xl mx-auto">
@@ -88,7 +88,7 @@ function JobMatcher({ profiles, language = 'en' }) {
               className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-neutral-900 focus:border-transparent"
             >
               <option value="">-- {language === 'hi' ? 'प्रोफ़ाइल चुनें' : 'Choose a profile'} --</option>
-              {profiles.map((profile) => (
+              {(Array.isArray(profiles) ? profiles : []).map((profile) => (
                 <option key={profile.id} value={profile.id}>
                   {profile.name} - {profile.recommended_job_category || 'General'}
                 </option>
@@ -181,8 +181,8 @@ function JobMatcher({ profiles, language = 'en' }) {
                           <p className="text-sm font-medium text-neutral-700 mb-2">
                             {language === 'hi' ? 'विकसित करने के लिए कौशल:' : 'Skills to develop:'}
                           </p>
-                          <div className="flex flex-wrap gap-2">
-                            {job.missing_skills.map((skill, i) => (
+            <div className="flex flex-wrap gap-2">
+                            {(Array.isArray(job.missing_skills) ? job.missing_skills : []).map((skill, i) => (
                               <span
                                 key={i}
                                 className="inline-flex items-center px-3 py-1 rounded-full text-sm bg-neutral-100 text-neutral-700 border border-neutral-200"

@@ -1,0 +1,6 @@
+#!/bin/bash
+rm -f .git/index.lock
+git add .
+git commit -m "Add fixes for Railway deployment"
+git pull origin main --rebase
+git push -u origin main

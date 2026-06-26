@@ -17,7 +17,7 @@ function ResumeGenerator({ profiles, language = 'en' }) {
 
     try {
       const response = await axios.post(`/api/resume/${selectedProfileId}`)
-      const fullUrl = `http://localhost:8000${response.data.download_url}`
+      const fullUrl = `${window.location.origin}${response.data.download_url}`
       setDownloadUrl(fullUrl)
     } catch (err) {
       setError('Failed to generate resume. Please try again.')
@@ -79,7 +79,7 @@ function ResumeGenerator({ profiles, language = 'en' }) {
               className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-neutral-900 focus:border-transparent"
             >
               <option value="">-- {language === 'hi' ? 'प्रोफ़ाइल चुनें' : 'Choose a profile'} --</option>
-              {profiles.map((profile) => (
+              {(Array.isArray(profiles) ? profiles : []).map((profile) => (
                 <option key={profile.id} value={profile.id}>
                   {profile.name} - {profile.recommended_job_category || 'General'}
                 </option>
