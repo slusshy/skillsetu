@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import api from './api'
+import { api } from './api'
 import ProfileBuilder from './components/ProfileBuilder'
 import ResumeGenerator from './components/ResumeGenerator'
 import JobMatcher from './components/JobMatcher'
