@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <title>SkillSetu AI - Professional Identity Builder</title>
+    <style>
+      * {
+        --vapi-bottom: 24px !important;
+        --vapi-right: 24px !important;
+        --vapi-left: auto !important;
+      }
+      #vapi-widget-container,
+      [data-vapi-widget],
+      .vapi-voice-assistant,
+      iframe[src*="vapi"],
+      div[id*="vapi"],
+      div[class*="vapi"] {
+        position: fixed !important;
+        bottom: var(--vapi-bottom) !important;
+        right: var(--vapi-right) !important;
+        left: var(--vapi-left) !important;
+        top: auto !important;
+        margin: 0 !important;
+        transform: none !important;
+        z-index: 9999 !important;
+      }
+      #vapi-widget-container svg,
+      [data-vapi-widget] svg,
+      .vapi-voice-assistant svg,
+      #vapi-widget-container img,
+      [data-vapi-widget] img,
+      .vapi-voice-assistant img {
+        filter: invert(1) brightness(0) !important;
+      }
+      #vapi-widget-container button,
+      [data-vapi-widget] button,
+      .vapi-voice-assistant button {
+        background-color: #000 !important;
+        color: #fff !important;
+      }
+      #vapi-widget-container,
+      [data-vapi-widget] {
+        background-color: #000 !important;
+        border-radius: 9999px !important;
+      }
+      #vapi-widget-container *,
+      [data-vapi-widget] * {
+        border-radius: 9999px !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+    <script src="https://cdn.jsdelivr.net/gh/VapiAI/html-script-tag@latest/dist/assets/index.js" defer async></script>
+    <script>
+      window.addEventListener('load', () => {
+        if (window.vapiSDK) {
+          window.vapiSDK.run({
+            apiKey: "cdc52eb6-2fae-4b05-a119-1747a186a9d2",
+            assistant: "d64fdb17-4eb4-402f-b821-a64ed451e55b",
+            config: {
+              position: "bottom-right",
+              theme: {
+                primaryColor: "#000000",
+                secondaryColor: "#ffffff"
+              }
+            },
+            assistantOverrides: {
+              variableValues: {
+                currentTab: "Profile Builder",
+                selectedProfileName: "—",
+                profileCount: 0,
+                uiLanguage: "en"
+              }
+            }
+          });
+        }
+      });
+    </script>
+  </body>
+</html>

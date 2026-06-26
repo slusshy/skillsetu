@@ -1,0 +1,34 @@
+# Dependencies
+node_modules/
+__pycache__/
+*.pyc
+.pnp.*
+.yarn/
+
+# Build outputs
+dist/
+build/
+
+# Environment
+.env
+.env.local
+*.db
+skillsetu.db
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Testing
+coverage/
+
+# Cache
+.cache/

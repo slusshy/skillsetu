@@ -1,0 +1,42 @@
+[
+  {
+    "title": "Construction Worker",
+    "skills": ["physical labor", "safety protocols", "teamwork", "tool operation", "blueprint reading"]
+  },
+  {
+    "title": "Delivery Driver",
+    "skills": ["driving", "navigation", "time management", "vehicle maintenance", "customer service"]
+  },
+  {
+    "title": "Domestic Helper",
+    "skills": ["cleaning", "cooking", "organization", "childcare", "laundry"]
+  },
+  {
+    "title": "Electrician",
+    "skills": ["electrical wiring", "circuit troubleshooting", "safety standards", "tool operation", "blueprint reading"]
+  },
+  {
+    "title": "Gardener",
+    "skills": ["plant care", "landscaping", "tool operation", "irrigation", "pruning"]
+  },
+  {
+    "title": "Mason",
+    "skills": ["bricklaying", "concrete work", "measurement", "tool operation", "safety protocols"]
+  },
+  {
+    "title": "Painter",
+    "skills": ["surface preparation", "color matching", "brush and roller techniques", "spray painting", "safety protocols"]
+  },
+  {
+    "title": "Plumber",
+    "skills": ["pipe installation", "leak repair", "drain cleaning", "tool operation", "reading blueprints"]
+  },
+  {
+    "title": "Security Guard",
+    "skills": ["surveillance", "patrolling", "emergency response", "report writing", "conflict resolution"]
+  },
+  {
+    "title": "Tailor",
+    "skills": ["sewing", "fabric cutting", "measurement", "buttonhole making", "ironing"]
+  }
+]
