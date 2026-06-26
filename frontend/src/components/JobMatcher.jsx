@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import axios from 'axios'
+import api from '../api'
 import { Briefcase, TrendingUp, AlertCircle, CheckCircle, XCircle, Search } from 'lucide-react'
 
 function JobMatcher({ profiles, language = 'en' }) {
@@ -16,7 +16,7 @@ function JobMatcher({ profiles, language = 'en' }) {
     setMatches([])
 
     try {
-      const response = await axios.get(`/api/profile/${selectedProfileId}/matches`)
+      const response = await api.get(`/api/profile/${selectedProfileId}/matches`)
       setMatches(response.data)
     } catch (err) {
       setError('Failed to find job matches. Please try again.')
@@ -88,7 +88,7 @@ function JobMatcher({ profiles, language = 'en' }) {
               className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-neutral-900 focus:border-transparent"
             >
               <option value="">-- {language === 'hi' ? 'प्रोफ़ाइल चुनें' : 'Choose a profile'} --</option>
-              {(Array.isArray(profiles) ? profiles : []).map((profile) => (
+            {(Array.isArray(profiles) ? profiles : []).slice(0,5).map((profile) => (
                 <option key={profile.id} value={profile.id}>
                   {profile.name} - {profile.recommended_job_category || 'General'}
                 </option>

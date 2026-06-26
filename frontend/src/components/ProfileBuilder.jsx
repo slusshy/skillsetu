@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import axios from 'axios'
+import api from '../api'
 import { motion } from 'framer-motion'
 import { Loader2, User, MapPin, Calendar, FileText, Sparkles } from 'lucide-react'
 
@@ -26,7 +26,7 @@ function ProfileBuilder({ onProfileCreated, language = 'en' }) {
     setError('')
 
     try {
-      const response = await axios.post('/api/profile', {
+      const response = await api.post('/api/profile', {
         name: formData.name,
         age: formData.age ? parseInt(formData.age) : null,
         location: formData.location || null,

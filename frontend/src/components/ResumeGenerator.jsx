@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
-import axios from 'axios'
+import api from '../api'
 import { Download, FileText, CheckCircle, User, Clock, MapPin } from 'lucide-react'
 
 function ResumeGenerator({ profiles, language = 'en' }) {
@@ -16,8 +16,8 @@ function ResumeGenerator({ profiles, language = 'en' }) {
     setError('')
 
     try {
-      const response = await axios.post(`/api/resume/${selectedProfileId}`)
-      const fullUrl = `${window.location.origin}${response.data.download_url}`
+      const response = await api.post(`/api/resume/${selectedProfileId}`)
+      const fullUrl = `${import.meta.env.VITE_API_URL}${response.data.download_url}`
       setDownloadUrl(fullUrl)
     } catch (err) {
       setError('Failed to generate resume. Please try again.')

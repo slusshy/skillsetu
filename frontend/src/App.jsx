@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import axios from 'axios'
+import api from './api'
 import ProfileBuilder from './components/ProfileBuilder'
 import ResumeGenerator from './components/ResumeGenerator'
 import JobMatcher from './components/JobMatcher'
@@ -16,7 +16,7 @@ function App() {
 
   const fetchProfiles = async () => {
     try {
-      const response = await axios.get('/api/profiles')
+      const response = await api.get('/api/profiles')
       setProfiles(Array.isArray(response.data) ? response.data : [])
     } catch (err) {
       console.error('Failed to fetch profiles')
